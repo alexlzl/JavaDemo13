@@ -8,18 +8,17 @@ public class Test {
             @Override
             public void run() {
                 super.run();
-                System.out.println("执行thread==1");
-                System.out.println("执行线程ID"+Thread.currentThread().getId());
+                System.out.println("执行线程ID=="+Thread.currentThread().getId()+"=========");
             }
         };
-//        thread.start();
+        thread.start();
         new Thread(){
             @Override
             public void run() {
                 super.run();
                 System.out.println("执行线程ID=="+Thread.currentThread().getId());
                 thread.run();
-                thread.start();
+//                thread.start();
             }
         }.start();
     }
