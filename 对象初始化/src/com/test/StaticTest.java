@@ -30,6 +30,7 @@ public class StaticTest {
 
     public static void staticFunction() {   // 静态方法
         System.out.println("4");
+         StaticTest st = new StaticTest();
     }
 
 
