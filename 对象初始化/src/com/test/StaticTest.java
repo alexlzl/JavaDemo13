@@ -12,7 +12,7 @@ public class StaticTest {
     public static void main(String[] args) {
         staticFunction();
     }
-
+    int a = 110;    // 实例变量
     static StaticTest st = new StaticTest();
 
     static {   //静态代码块
@@ -20,7 +20,7 @@ public class StaticTest {
     }
 
     {       // 实例代码块
-        System.out.println("2");
+        System.out.println("实例代码块=="+a);
     }
 
     StaticTest() {    // 实例构造器
@@ -32,6 +32,6 @@ public class StaticTest {
         System.out.println("4");
     }
 
-    int a = 110;    // 实例变量
+
     static int b = 112;     // 静态变量
 }
