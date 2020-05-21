@@ -31,8 +31,13 @@ public class ThreadCaseDemo03 {
 class Info { // 定义信息类
     private String name = "name";//定义name属性，为了与下面set的name属性区别开
     private String content = "content";// 定义content属性，为了与下面set的content属性区别开
-    private boolean flag = true;   // 设置标志位,初始时先生产
+    private boolean flag = true;   // 设置标志位,true 表示生产者执行，false 表示消费执行
 
+    /**
+     * 生产商品
+     * @param name
+     * @param content
+     */
     public synchronized void set(String name, String content) {
         while (!flag) {
             try {
@@ -49,7 +54,7 @@ class Info { // 定义信息类
         }
         this.setContent(content);  // 设置内容
         flag = false; // 改变标志位，表示可以取走
-        super.notify();
+        super.notify();//唤醒消费者执行线程
     }
 
     public synchronized void get() {
@@ -68,7 +73,7 @@ class Info { // 定义信息类
         System.out.println(this.getName() +
                 " --> " + this.getContent());
         flag = true;  // 改变标志位，表示可以生产
-        super.notify();
+        super.notify();//唤醒生产者执行线程
     }
 
     public void setName(String name) {
