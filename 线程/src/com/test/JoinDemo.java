@@ -1,5 +1,7 @@
 package com.test;
-
+/*
+https://www.cnblogs.com/duanxz/p/5038471.html
+ */
 public class JoinDemo extends Thread {
     int i;
     Thread previousThread; //上一个线程
